@@ -1,0 +1,28 @@
+{% extends "layout.html"%}
+
+{%block title%}
+    History
+{% endblock %}
+
+{% block main %}
+{% set table_head = ["Symbol", "Shares", "Price", "Transacted"]%}
+<table>
+    <thead>
+        <tr>
+            {%for i in table_head%}
+                <td><strong>{{ i }}</strong></td>
+            {%endfor%}
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in history%}
+        <tr>
+            <td>{{ i["symbol"] }}</td>
+            <td>{{ i["shares"] }}</td>
+            <td>{{ i["price"] | usd }}</td>
+            <td>{{ i["transacted"]}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
