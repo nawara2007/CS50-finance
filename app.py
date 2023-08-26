@@ -134,7 +134,6 @@ def addCash():
 @app.route("/password", methods=["GET", "POST"])
 @login_required
 def password():
-    """Show history of transactions"""
     if request.method == "POST":
         if not request.form.get("curr_password") or not request.form.get("new_password") or not request.form.get("confirm_password"):
             return apology("Please enter the passwords")
